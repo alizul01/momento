@@ -6,6 +6,7 @@ import jwtDecode from 'jwt-decode'
 import {json, useNavigate} from "react-router-dom";
 import {dataCredential} from "../types/dataCredential";
 import {client} from "../client";
+import {docType} from "../types/docType";
 
 function Login() {
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ function Login() {
                                         const USER_CREDENTIAL: dataCredential = jwtDecode(credentialResponse.credential);
                                         console.log(USER_CREDENTIAL);
                                         const { name, picture, sub } = USER_CREDENTIAL;
-                                        const doc = {
+                                        const doc: docType = {
                                             _id: sub,
                                             _type: 'user',
                                             userName: name,
